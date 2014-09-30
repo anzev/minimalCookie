@@ -17,34 +17,34 @@ Of course, you can also use the library as you wish, by binding/calling the func
 
 ## API ##
 
-The library exposes the following functions.
+The library exposes a singleton `MinimalCookie` with the following methods.
 
 ```javascript
 // Remembers that the user has accepted cookies.
-cookies_accept()
+.accept()
 ```
 
 ```javascript
 // Remembers that the user has declined cookies.
-cookies_decline()
+.decline()
 ```
 
 ```javascript
 // Returns true if the user has either accepted or declined cookies.
-cookies_choice_made()
+.choice_made()
 ```
 
 ```javascript
 // Forgets the user's choice.
-cookies_forget_choice()
+.forget_choice()
 ```
 
 ```javascript
 // Returns true if the user has accepted cookies.
-cookies_allowed()
+.allowed()
 ```
 
-Set the `COOKIE_EXPIRES` variable (in seconds, default: one year) to control when the cookie choice expires. 
+Set the `MinimalCookie.EXPIRES` variable (in seconds, default: one year) to control when the cookie choice expires. 
 
 ## Example ##
 
@@ -62,7 +62,7 @@ A minimal example would be as follows. First, add a cookie prompt (note the elem
 Now you can conditionally load your javascript, depending on the user's choice.
 
 ```javascript
-if (cookies_allowed()) {
+if (MinimalCookie.allowed()) {
     // Execute your code here, e.g., a Google Analytics snippet.
 }
 ```
